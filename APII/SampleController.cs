@@ -4,11 +4,11 @@
 [ApiController]
 public class SampleController : ControllerBase
 {
-    //[HttpGet]
-    //public IActionResult Get()
-    //{
-    //    return Ok("Hello, World!");
-    //}
+    [HttpGet]
+    public IActionResult Get()
+    {
+        return Ok("Hello, World!");
+    }
 
     [HttpPost("receive-data")]
     public IActionResult ReceiveData([FromBody] MessageModel data)
