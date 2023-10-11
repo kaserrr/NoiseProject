@@ -1,0 +1,46 @@
+﻿@page "/"
+
+@using Microsoft.AspNetCore.Components
+
+@inject NavigationManager NavigationManager
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<div class="h-screen flex items-center justify-center">
+    <div class="flex flex-col rounded-md outline outline-2 outline-offset-4 outline-orange-400 p-12">
+        <input class="bg-orange-400	rounded-md p-1 placeholder-white text-white w-44" type="text" @bind="username" placeholder="Username"><br>
+        <input class="bg-orange-400	rounded-md p-1 placeholder-white text-white w-44" type="password" @bind="password" placeholder="Password"><br>
+        <button class="bg-stone-950	p-1 text-white placeholder-white w-44 rounded-md" @onclick="AttemptLogin">Login</button>
+
+        @if (loginFailed)
+        {
+            <p class="text-red-600 w-44">Login failed.</p>
+        }
+    </div>
+</div>
+
+
+
+
+@code {
+    private string username;
+    private string password;
+    private bool loginFailed;
+
+    private void AttemptLogin()
+    {
+        // Hardcoded username and password for demonstration purposes
+        if (username == "demo" && password == "password")
+        {
+            // Successful login, navigate to the protected page
+            NavigationManager.NavigateTo("/Config");
+        }
+        else
+        {
+            loginFailed = true;
+        }
+    }
+
+}
