@@ -30,10 +30,21 @@ class Program
                 }
 
                 // Print the request body
-                Console.WriteLine($"Received a request with body: {requestBody}");
+                //Console.WriteLine($"Received a request with body: {requestBody}");
+
+                //Reading JSON
+     
+                dynamic parsedJson = JsonConvert.DeserializeObject(requestBody);
+
+                Console.WriteLine("Gateway ID: " + parsedJson.gatewayID);
+                Console.WriteLine("Time: " + parsedJson.time);
+                //Console.WriteLine("RSSI: " + parsedJson.rssi);
+                //Console.WriteLine("LoRa SNR: " + parsedJson.loRaSNR);
+
+
 
                 // Send a response to the client
-                string responseText = "Hello, this is your API response!";
+                string responseText = $@"Json: {parsedJson}";
                 byte[] responseBytes = System.Text.Encoding.UTF8.GetBytes(responseText);
                 context.Response.OutputStream.Write(responseBytes, 0, responseBytes.Length);
                 context.Response.Close();
@@ -47,5 +58,6 @@ class Program
         {
             listener.Stop();
         }
+
     }
 }
