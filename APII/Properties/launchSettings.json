@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "APII": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
