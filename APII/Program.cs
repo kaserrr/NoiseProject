@@ -39,14 +39,16 @@ class Program
                 byte[] responseBytes = System.Text.Encoding.UTF8.GetBytes(requestBody);
                 string resultString = Encoding.UTF8.GetString(responseBytes);
 
-                List<RootObject> responseJSON = JsonSerializer.Deserialize<List<RootObject>>(resultString);
+                List<RootObject>? responseJSON = JsonSerializer.Deserialize<List<RootObject>>(resultString);
+
+
 
                 if (responseJSON != null && responseJSON.Count > 0 &&
-    responseJSON[0].UplinkMetaData != null && responseJSON[0].UplinkMetaData.RxInfo != null &&
-    responseJSON[0].UplinkMetaData.RxInfo.Count > 0)
+                responseJSON[0].UplinkMetaData != null && responseJSON[0].UplinkMetaData.RxInfo != null &&
+                responseJSON[0].UplinkMetaData.RxInfo.Count > 0)
                 {
-                    string gatewayID = responseJSON[0].UplinkMetaData.RxInfo[0].GatewayID;
-                    string devAddr = responseJSON[0].PhyPayload.MacPayload.Fhdr.DevAddr;
+                    string? gatewayID = responseJSON[0].UplinkMetaData.RxInfo[0].GatewayID;
+                    string? devAddr = responseJSON[0].PhyPayload.MacPayload.Fhdr.DevAddr;
 
                     Console.WriteLine($"Result of testy test: {responseJSON}");
 
