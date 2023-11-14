@@ -50,7 +50,7 @@ class Program
                     string? gatewayID = responseJSON[0].UplinkMetaData.RxInfo[0].GatewayID;
                     string? devAddr = responseJSON[0].PhyPayload.MacPayload.Fhdr.DevAddr;
 
-                    Console.WriteLine($"Result of testy test: {responseJSON}");
+                   //  Console.WriteLine($"Result of testy test: {responseJSON}");
 
                     Console.WriteLine("Gateway ID: " + gatewayID);
                     Console.WriteLine("DevAddr: " + devAddr);
