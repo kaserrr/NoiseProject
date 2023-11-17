@@ -233,7 +233,7 @@ public class ElsysPayloadDecoder
 
 class Decoder
 {
-    static void Main(string[] args)
+    static void Main1(string[] args)
     {
         string data = "447046e66e5359b1838cb674c8713e03"; // Replace with your hexadecimal data
         Dictionary<string, object> result = ElsysPayloadDecoder.DecodeElsysPayload(data);

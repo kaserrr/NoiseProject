@@ -1,0 +1,66 @@
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\appsettings.json
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\ASP.NET API.exe
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\ASP.NET API.deps.json
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\ASP.NET API.runtimeconfig.json
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\ASP.NET API.dll
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\ASP.NET API.pdb
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.csproj.AssemblyReference.cache
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.AssemblyInfoInputs.cache
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.AssemblyInfo.cs
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.csproj.CoreCompileInputs.cache
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets\msbuild.ASP.NET API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets\msbuild.build.ASP.NET API.props
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ASP.NET API.props
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ASP.NET API.props
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\scopedcss\bundle\ASP.NET API.styles.css
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.csproj.CopyComplete
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.dll
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\refint\ASP.NET API.dll
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.pdb
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.genruntimeconfig.cache
+C:\Users\Eigenaar\source\repos\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ref\ASP.NET API.dll
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\appsettings.json
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\ASP.NET API.exe
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\ASP.NET API.deps.json
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\ASP.NET API.runtimeconfig.json
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\ASP.NET API.dll
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\ASP.NET API.pdb
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.csproj.AssemblyReference.cache
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.AssemblyInfoInputs.cache
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.AssemblyInfo.cs
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.csproj.CoreCompileInputs.cache
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets\msbuild.ASP.NET API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets\msbuild.build.ASP.NET API.props
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ASP.NET API.props
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ASP.NET API.props
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\scopedcss\bundle\ASP.NET API.styles.css
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.csproj.CopyComplete
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.dll
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\refint\ASP.NET API.dll
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.pdb
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ASP.NET API.genruntimeconfig.cache
+C:\Users\kaser\source\repos\Noise_project\ASP.NET API\ASP.NET API\obj\Debug\net6.0\ref\ASP.NET API.dll

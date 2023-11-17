@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 public class FLSmartPayloadDecoder
@@ -63,3 +63,4 @@ public class FLSmartPayloadDecoder
         return bytes;
     }
 }
+*/
