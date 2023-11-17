@@ -1,4 +1,4 @@
-﻿using Syusing System;
+﻿/*using Syusing System;
 using System.Collections.Generic;
 
 class DecodFLSmartPayloadDecoderer
@@ -63,3 +63,4 @@ class DecodFLSmartPayloadDecoderer
         return bytes;
     }
 }
+*/
