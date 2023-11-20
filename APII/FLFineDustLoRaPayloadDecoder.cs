@@ -4,7 +4,7 @@ using System.Linq;
 
 class FLFineDustPayloadDecoder
 {
-    static void Main4()
+    static void Main3()
     {
         // Example usage
         string rawPayloadHex = "031EC501F30284034C04AC71C201";
@@ -15,6 +15,9 @@ class FLFineDustPayloadDecoder
         {
             Console.WriteLine($"{entry.Key}: {entry.Value}");
         }
+
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
     }
 
     static Dictionary<string, object> DecodeFLFineDustPayload(string payloadHex)

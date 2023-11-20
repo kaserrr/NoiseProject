@@ -4,7 +4,7 @@ using System.Net;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main1(string[] args)
     {
         // Create an HttpListener instance to listen for incoming requests
         HttpListener listener = new HttpListener();

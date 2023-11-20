@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class FLSmartPayloadDecoder
 {
-    public static void Main2()
+    public static void Main6()
     {
         // Example payload bytes (replace this with your actual payload data)
         string payloadHex = "0A00003C0005000000000000140A0F37";
@@ -15,6 +15,10 @@ public class FLSmartPayloadDecoder
         {
             Console.WriteLine($"{kvp.Key}: {kvp.Value}");
         }
+
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
+
     }
 
     public static Dictionary<string, object> DecodeFLSmartOfficeLoRaPayload(byte[] data)

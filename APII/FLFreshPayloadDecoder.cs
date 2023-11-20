@@ -4,7 +4,7 @@ using System.Linq;
 
 public class FLFreshPayloadDecoder
 {
-    public static void Main3()
+    public static void Main()
     {
         // Example usage
         string rawPayloadHex = "031DC00120750A000C8E0100";
@@ -15,6 +15,9 @@ public class FLFreshPayloadDecoder
         {
             Console.WriteLine($"{entry.Key}: {entry.Value}");
         }
+
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
     }
 
     static Dictionary<string, object> DecodeFlFreshPayload(string payloadHex)
