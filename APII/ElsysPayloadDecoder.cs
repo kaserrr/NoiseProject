@@ -1,6 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 
+class Decoder
+{
+    static void Main2(string[] args)
+    {
+        string data = "447046e66e5359b1838cb674c8713e03"; // Replace with your hexadecimal data
+        Dictionary<string, object> result = ElsysPayloadDecoder.DecodeElsysPayload(data);
+
+        foreach (var item in result)
+        {
+            Console.WriteLine($"{item.Key}: {item.Value}");
+        }
+
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
+    }
+}
+
+
 public class ElsysPayloadDecoder
 {
     private const byte TYPE_TEMP = 0x01;
@@ -231,16 +249,4 @@ public class ElsysPayloadDecoder
 }
 
 
-class Decoder
-{
-    static void Main(string[] args)
-    {
-        string data = "447046e66e5359b1838cb674c8713e03"; // Replace with your hexadecimal data
-        Dictionary<string, object> result = ElsysPayloadDecoder.DecodeElsysPayload(data);
 
-        foreach (var item in result)
-        {
-            Console.WriteLine($"{item.Key}: {item.Value}");
-        }
-    }
-}
