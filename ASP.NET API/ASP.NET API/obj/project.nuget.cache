@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "NXreu33/HGVT96dRLrIvDOmSoqxwgWPcORkv+Kayu29JPBNaMJ+3BVIAhp3b1FWLQmqCUht5ZhbYqzmdHKmZBA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kaser\\source\\repos\\Noise_project\\ASP.NET API\\ASP.NET API\\ASP.NET API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kaser\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\kaser\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\kaser\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\kaser\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\kaser\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\kaser\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\kaser\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
