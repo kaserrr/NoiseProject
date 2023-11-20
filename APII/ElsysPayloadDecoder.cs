@@ -5,7 +5,7 @@ class Decoder
 {
     static void Main2(string[] args)
     {
-        string data = "447046e66e5359b1838cb674c8713e03"; // Replace with your hexadecimal data
+        string data = "0100e202290400270506060308070d62"; // Replace with your hexadecimal data
         Dictionary<string, object> result = ElsysPayloadDecoder.DecodeElsysPayload(data);
 
         foreach (var item in result)
