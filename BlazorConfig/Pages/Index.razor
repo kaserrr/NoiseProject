@@ -35,6 +35,8 @@
     private string username;
     private string password;
     private bool loginFailed;
+    private ElementReference usernameInput;
+    private ElementReference passwordInput;
 
     private void AttemptLogin()
     {
@@ -47,6 +49,15 @@
         else
         {
             loginFailed = true;
+        }
+    }
+
+    private void HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            // Enter key is pressed, attempt login
+            AttemptLogin();
         }
     }
 
