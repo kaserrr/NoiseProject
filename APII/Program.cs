@@ -1,50 +1,70 @@
 using System;
-using System.IO;
-using System.Net;
+using System.Collections.Generic;
+using ElsysPayloadDecoder;
+using FLSmartPayloadDecoder;
+using FLFreshPayloadDecoder;
+using FLFineDustPayloadDecoder;
 
-class Program
+namespace Decoders
 {
-    static void Main1(string[] args)
+    interface IDecoder
     {
-        // Create an HttpListener instance to listen for incoming requests
-        HttpListener listener = new HttpListener();
-        listener.Prefixes.Add("http://localhost:8080/"); // Define the URL to listen on
-  
-        try
-        {
-            listener.Start();
-            Console.WriteLine("Listening for requests on http://localhost:8080/");
+        Dictionary<string, object> Decode(string payloadHexStr);
+    }
 
-            while (true)
+    class Decoder : IDecoder
+    {
+        public Dictionary<string, object> Decode(string payloadHexStr)
+        {
+            Dictionary<string, object> decodedData;
+
+            if (payloadHexStr.StartsWith("031EC5"))
             {
-                // Wait for an incoming HTTP request
-                HttpListenerContext context = listener.GetContext();
-                HttpListenerRequest request = context.Request;
-
-                // Read the request body
-                string requestBody;
-                using (StreamReader reader = new StreamReader(request.InputStream))
-                {
-                    requestBody = reader.ReadToEnd();
-                }
-
-                // Print the request body
-                Console.WriteLine($"Received a request with body: {requestBody}");
-
-                // Send a response to the client
-                string responseText = "Hello, this is your API response!";
-                byte[] responseBytes = System.Text.Encoding.UTF8.GetBytes(responseText);
-                context.Response.OutputStream.Write(responseBytes, 0, responseBytes.Length);
-                context.Response.Close();
+                // Use FLFineDustPayloadDecoder for FLFineDust payload
+                decodedData = DecodeFLFineDustLoRaPayloadDecoder.DecodeFLFineDustPayload(payloadHexStr);
             }
+            else if (payloadHexStr.StartsWith("0500A0"))
+            {
+                // Use FLFreshPayloadDecoder for FLFresh payload
+                decodedData = DecodeFlFreshPayloadDecoder.DecodeFlFreshPayload(payloadHexStr);
+            }
+            else if (payloadHexStr.StartsWith("0A00003C"))
+            {
+                // Use FLSmartPayloadDecoder for FLSmart payload
+                decodedData = DecodeFLSmartPayloadDecoder.DecodeFLSmartPayload(payloadHexStr);
+            }
+            else if (payloadHexStr.StartsWith("0100e202"))
+            {
+                // Use ElsysPayloadDecoder for Elsys payload
+                decodedData = PayloadDecoder.ElsysPayloadDecoder.DecodeElsysPayload(payloadHexStr);
+            }
+            else
+            {
+                // Default to a generic decoding mechanism or throw an exception
+                throw new ArgumentException("Unsupported payload type");
+            }
+
+            // Other decoding logic if needed
+
+            return decodedData;
         }
-        catch (Exception ex)
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
         {
-            Console.WriteLine($"An error occurred: {ex.Message}");
-        }
-        finally
-        {
-            listener.Stop();
+            Decoder decoder = new Decoder();
+            Dictionary<string, object> decodedData = decoder.Decode("0500A086000032000001F4010000000A");
+
+            // Print the decoded data
+            foreach (var entry in decodedData)
+            {
+                Console.WriteLine($"{entry.Key}: {entry.Value}");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }
