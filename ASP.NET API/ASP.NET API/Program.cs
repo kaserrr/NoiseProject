@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using ASP.NET_API.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddDbContext<ContextModels>(opt =>
+    opt.UseInMemoryDatabase("SensorInfo"));
 
 // Add Swagger for API documentation (if needed).
 builder.Services.AddEndpointsApiExplorer();
