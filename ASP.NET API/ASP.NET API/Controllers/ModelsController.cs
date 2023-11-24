@@ -83,7 +83,7 @@ namespace ASP.NET_API.Controllers
         // POST: api/Models
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Models>> PostModels(Models models)
+        public async Task<ActionResult<Models.>> PostModels(Models models)
         {
           if (_context.SensorData == null)
           {
