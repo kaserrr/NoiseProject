@@ -22,7 +22,7 @@ namespace ASP.NET_API.Controllers
 
         // GET: api/Models
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Models>>> GetSensorData()
+        public async Task<ActionResult<IEnumerable<Models.Models>>> GetSensorData()
         {
           if (_context.SensorData == null)
           {
@@ -33,7 +33,7 @@ namespace ASP.NET_API.Controllers
 
         // GET: api/Models/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Models>> GetModels(long id)
+        public async Task<ActionResult<Models.Models    >> GetModels(long id)
         {
           if (_context.SensorData == null)
           {
@@ -52,7 +52,7 @@ namespace ASP.NET_API.Controllers
         // PUT: api/Models/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutModels(long id, Models models)
+        public async Task<IActionResult> PutModels(long id, Models.Models models)
         {
             if (id != models.Id)
             {
@@ -83,7 +83,7 @@ namespace ASP.NET_API.Controllers
         // POST: api/Models
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Models.>> PostModels(Models models)
+        public async Task<ActionResult<Models.Models>> PostModels(Models.Models models)
         {
           if (_context.SensorData == null)
           {
@@ -92,7 +92,7 @@ namespace ASP.NET_API.Controllers
             _context.SensorData.Add(models);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof("GetModels", new { id = models.Id }, models);
+            return CreatedAtAction(nameof("GetModels", new { id = models.Id }, models));
         }
 
         // DELETE: api/Models/5
