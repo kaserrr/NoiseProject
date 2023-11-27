@@ -4,6 +4,15 @@
     </div>
     <nav class="flex flex-1 flex-col">
         <ul class="flex flex-1 flex-col gap-y-7">
+            <li>
+                <ul>
+                    @foreach(var linkItem in _linkItems)
+                    {
+                        @linkItem.Content
+
+                    }
+                </ul>
+            </li>
         </ul>
     </nav>
 </div>

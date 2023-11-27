@@ -15,7 +15,7 @@ namespace FLFreshPayloadDecoder
                                              .Select(x => Convert.ToByte(payloadHex.Substring(x, 2), 16))
                                              .ToArray();
 
-            if (payloadBytes.Length != 10)
+            if (payloadBytes.Length != 16)
             {
                 return new Dictionary<string, object> { { "Error", "Invalid payload length" } };
             }
