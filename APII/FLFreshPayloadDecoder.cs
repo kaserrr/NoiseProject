@@ -14,7 +14,7 @@ namespace FLFreshPayloadDecoder
                                              .Where(x => x % 2 == 0)
                                              .Select(x => Convert.ToByte(payloadHex.Substring(x, 2), 16))
                                              .ToArray();
-
+            Console.WriteLine(payloadBytes.Length);
             if (payloadBytes.Length != 10)
             {
                 return new Dictionary<string, object> { { "Error", "Invalid payload length" } };
