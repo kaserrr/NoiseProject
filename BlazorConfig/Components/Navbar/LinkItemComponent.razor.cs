@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Components;
+namespace BlazorConfig.Components.Navbar;
 
-namespace BlazerConfig.Components.Navbar
-{
     public partial class LinkItemComponent
     {
         [Parameter]
-        public LinkItemComponent LinkItem { get; set; }
+        public LinkItem LinkItem { get; set; }
     }
-}
+
