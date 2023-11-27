@@ -92,7 +92,7 @@ namespace ASP.NET_API.Controllers
             _context.SensorData.Add(models);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof("GetModels", new { id = models.Id }, models));
+            return CreatedAtAction(nameof(GetModels), new { id = models.Id }, models);
         }
 
         // DELETE: api/Models/5
