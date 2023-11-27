@@ -9,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ContextModels>(opt =>
     opt.UseInMemoryDatabase("SensorInfo"));
+builder.Services.AddDbContext<ContextUplinkData>(opt =>
+    opt.UseInMemoryDatabase("SensorInfo"));
 
 // Add Swagger for API documentation (if needed).
 builder.Services.AddEndpointsApiExplorer();

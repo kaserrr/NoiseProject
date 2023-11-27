@@ -11,7 +11,6 @@ namespace ASP.NET_API.Models
         public string? Name { get; set; }
         public bool IsComplete { get; set; }
         
-
         public class UplinkData
         {
             public List<UplinkMetaData>? uplinkMetaData { get; set; }
