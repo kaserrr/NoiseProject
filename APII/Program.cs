@@ -4,6 +4,7 @@ using ElsysPayloadDecoder;
 using FLSmartPayloadDecoder;
 using FLFreshPayloadDecoder;
 using FLFineDustPayloadDecoder;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Decoders
 {
@@ -18,33 +19,13 @@ namespace Decoders
         {
             Dictionary<string, object> decodedData;
 
-            if (payloadHexStr.StartsWith("031EC5"))
-            {
-                // Use FLFineDustPayloadDecoder for FLFineDust payload
-                decodedData = DecodeFLFineDustLoRaPayloadDecoder.DecodeFLFineDustPayload(payloadHexStr);
-            }
-            else if (payloadHexStr.StartsWith("0500A0"))
-            {
-                // Use FLFreshPayloadDecoder for FLFresh payload
-                decodedData = DecodeFlFreshPayloadDecoder.DecodeFlFreshPayload(payloadHexStr);
-            }
-            else if (payloadHexStr.StartsWith("0A00003C"))
-            {
-                // Use FLSmartPayloadDecoder for FLSmart payload
-                decodedData = DecodeFLSmartPayloadDecoder.DecodeFLSmartPayload(payloadHexStr);
-            }
-            else if (payloadHexStr.StartsWith("0100e202"))
-            {
-                // Use ElsysPayloadDecoder for Elsys payload
-                decodedData = PayloadDecoder.ElsysPayloadDecoder.DecodeElsysPayload(payloadHexStr);
-            }
-            else
-            {
-                // Default to a generic decoding mechanism or throw an exception
-                throw new ArgumentException("Unsupported payload type");
-            }
+            /*decodedData = DecodeFLFineDustLoRaPayloadDecoder.DecodeFLFineDustPayload(payloadHexStr);*/
 
-            // Other decoding logic if needed
+            decodedData = DecodeFlFreshPayloadDecoder.DecodeFlFreshPayload(payloadHexStr);
+
+            /*decodedData = DecodeFLSmartPayloadDecoder.DecodeFLSmartPayload(payloadHexStr);*/
+
+            /*decodedData = PayloadDecoder.ElsysPayloadDecoder.DecodeElsysPayload(payloadHexStr);*/
 
             return decodedData;
         }
