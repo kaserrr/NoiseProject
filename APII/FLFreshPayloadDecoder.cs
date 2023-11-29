@@ -7,15 +7,9 @@ namespace FLFreshPayloadDecoder
 {
     class DecodeFlFreshPayloadDecoder
     {
-        public static Dictionary<string, object> DecodeFlFreshPayload(string payloadHex)
+        public static Dictionary<string, object> DecodeFlFreshPayload(byte[] payloadBytes)
         {
-            // Convert hex string to byte array
-            byte[] payloadBytes = Enumerable.Range(0, payloadHex.Length)
-                                             .Where(x => x % 2 == 0)
-                                             .Select(x => Convert.ToByte(payloadHex.Substring(x, 2), 16))
-                                             .ToArray();
-
-            if (payloadBytes.Length != 10)
+            if (payloadBytes.Length < 10)
             {
                 return new Dictionary<string, object> { { "Error", "Invalid payload length" } };
             }
@@ -23,15 +17,13 @@ namespace FLFreshPayloadDecoder
             Dictionary<string, object> decodedData = new Dictionary<string, object>();
 
             // Extracting data bytes
-            byte attemptsPending = payloadBytes[0];
-            ushort batteryVoltage = BitConverter.ToUInt16(payloadBytes, 1);
+            ushort batteryVoltage = BitConverter.ToUInt16(payloadBytes, 0);
             float batteryVoltageValue = batteryVoltage * 0.01f;
-            ushort co2Level = BitConverter.ToUInt16(payloadBytes, 3);
-            float temperature = BitConverter.ToUInt16(payloadBytes, 5) / 10.0f;
-            float humidity = BitConverter.ToUInt16(payloadBytes, 7) / 10.0f;
-            uint airPressure = BitConverter.ToUInt32(payloadBytes, 9);
+            ushort co2Level = BitConverter.ToUInt16(payloadBytes, 2);
+            float temperature = BitConverter.ToUInt16(payloadBytes, 4) / 10.0f;
+            float humidity = BitConverter.ToUInt16(payloadBytes, 6) / 10.0f;
+            uint airPressure = BitConverter.ToUInt32(payloadBytes, 8);
 
-            decodedData.Add("Attempts Pending", attemptsPending);
             decodedData.Add("Battery Voltage (V)", batteryVoltageValue);
             decodedData.Add("CO2 Level (ppm)", co2Level);
             decodedData.Add("Temperature (°C)", temperature);
@@ -41,5 +33,5 @@ namespace FLFreshPayloadDecoder
             return decodedData;
         }
     }
-}
 
+}
