@@ -40,7 +40,7 @@ namespace Decoders
             string FLDust = "SGVsbG8sIFdvcmxkIQAAAAAAAA==";
             string FLFresh = "SGVsbG8sIFdvcmxkIQ==";
             string FLSmart = "AAMAAKAAAQAAAAMAAAAAAHgAAAAYAAADAAAAGAAAABgAAAAoAAAAEAAAACAAAAAQAAAAkAAA";
-            string Elsys = "SGVsbG8sIFdvcmxkIQAAAAAAAA==";
+            string Elsys = "AQIDBAUGBwgJChESExQVFhcYGRobHB0eHw==";
 
             // Convert Base64 to bytes
             byte[] payloadBytes = Convert.FromBase64String(Elsys);

@@ -54,11 +54,20 @@ namespace ElsysPayloadDecoder
 
         public static Dictionary<string, object> DecodeElsysPayload(byte[] payloadBytes)
         {
+            if (payloadBytes.Length < 19)
+            {
+                Console.WriteLine($"Error: Insufficient bytes for decoding. Expected at least 19 bytes, but received {payloadBytes.Length} bytes.");
+                return new Dictionary<string, object>();
+            }
             Dictionary<string, object> obj = new Dictionary<string, object>();
 
-            for (int i = 0; i < payloadBytes.Length; i++)
+            int i = 0;
+            while (i < payloadBytes.Length)
             {
-                switch (payloadBytes[i])
+                byte type = payloadBytes[i];
+                i++;
+
+                switch (type)
                 {
                     case TYPE_TEMP:
                         int temp = (payloadBytes[i + 1] << 8) | payloadBytes[i + 2];
@@ -97,10 +106,18 @@ namespace ElsysPayloadDecoder
                         i += 2;
                         break;
                     case TYPE_GPS:
-                        i++;
-                        obj["lat"] = (payloadBytes[i] | (payloadBytes[i + 1] << 8) | (payloadBytes[i + 2] << 16) | ((payloadBytes[i + 2] & 0x80) != 0 ? 0xFF << 24 : 0)) / 10000.0;
-                        obj["long"] = (payloadBytes[i + 3] | (payloadBytes[i + 4] << 8) | (payloadBytes[i + 5] << 16) | ((payloadBytes[i + 5] & 0x80) != 0 ? 0xFF << 24 : 0)) / 10000.0;
-                        i += 5;
+                        if (i + 5 < payloadBytes.Length)
+                        {
+                            i++;
+                            obj["lat"] = (payloadBytes[i] | (payloadBytes[i + 1] << 8) | (payloadBytes[i + 2] << 16) | ((payloadBytes[i + 2] & 0x80) != 0 ? 0xFF << 24 : 0)) / 10000.0;
+                            obj["long"] = (payloadBytes[i + 3] | (payloadBytes[i + 4] << 8) | (payloadBytes[i + 5] << 16) | ((payloadBytes[i + 5] & 0x80) != 0 ? 0xFF << 24 : 0)) / 10000.0;
+                            i += 5;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Error: Insufficient bytes for GPS decoding at index {i}, payloadBytes.Length: {payloadBytes.Length}");
+                            return obj; // or handle the situation accordingly
+                        }
                         break;
                     case TYPE_PULSE1:
                         obj["pulse1"] = (payloadBytes[i + 1] << 8) | payloadBytes[i + 2];
@@ -147,15 +164,34 @@ namespace ElsysPayloadDecoder
                         i += 1;
                         break;
                     case TYPE_GRIDEYE:
-                        byte refValue = payloadBytes[i + 1];
-                        i++;
-                        List<double> grideyeData = new List<double>();
-                        for (int j = 0; j < 64; j++)
+                        if (i + 1 < payloadBytes.Length)
                         {
-                            grideyeData.Add(refValue + (payloadBytes[i + 1 + j] / 10.0));
+                            byte refValue = payloadBytes[i + 1];
+                            i++;
+                            List<double> grideyeData = new List<double>();
+                            Console.WriteLine($"RefValue: {refValue}");
+
+                            // Check if there are enough remaining bytes for grideyeData
+                            if (i + 64 < payloadBytes.Length)
+                            {
+                                for (int j = 0; j < 64; j++)
+                                {
+                                    grideyeData.Add(refValue + (payloadBytes[i + j] / 10.0));
+                                }
+                                obj["grideye"] = grideyeData;
+                                i += 64;
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Error: Insufficient bytes for grideyeData at index {i}, payloadBytes.Length: {payloadBytes.Length}");
+                                return obj; // or handle the situation accordingly
+                            }
                         }
-                        obj["grideye"] = grideyeData;
-                        i += 64;
+                        else
+                        {
+                            Console.WriteLine($"Error: Insufficient bytes for grideyeData at index {i}, payloadBytes.Length: {payloadBytes.Length}");
+                            return obj; // or handle the situation accordingly
+                        }
                         break;
                     case TYPE_PRESSURE:
                         int pressure = (payloadBytes[i + 1] << 24) | (payloadBytes[i + 2] << 16) | (payloadBytes[i + 3] << 8) | payloadBytes[i + 4];
@@ -213,9 +249,18 @@ namespace ElsysPayloadDecoder
                         obj["tvoc"] = (payloadBytes[i + 1] << 8) | payloadBytes[i + 2];
                         i += 2;
                         break;
+
                     default:
-                        i = payloadBytes.Length;
+                        if (i < payloadBytes.Length)
+                        {
+                            Console.WriteLine($"Unknown Type: {payloadBytes[i]} at index {i}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Index {i} is outside the bounds of the array.");
+                        }
                         break;
+
                 }
             }
 

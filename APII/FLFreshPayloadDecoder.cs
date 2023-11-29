@@ -9,8 +9,6 @@ namespace FLFreshPayloadDecoder
     {
         public static Dictionary<string, object> DecodeFlFreshPayload(byte[] payloadBytes)
         {
-
-
             if (payloadBytes.Length != 10)
             {
                 return new Dictionary<string, object> { { "Error", "Invalid payload length" } };
