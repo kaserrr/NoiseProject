@@ -12,6 +12,7 @@ namespace Decoders
     {
         Dictionary<string, object> Decode(byte[] payloadBytes);
     }
+    
 
     class Decoder : IDecoder
     {
