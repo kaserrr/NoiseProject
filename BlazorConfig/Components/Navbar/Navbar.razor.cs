@@ -10,6 +10,12 @@ public partial class Navbar
         {
             new LinkItem("/test", "Test"), // Using the LinkItem constructor directly
             new LinkItem("/test2", "Test2")
+            new LinkItemGroup("/test3", "Test3", new List<ILinkItem>() 
+            {                                                                          
+                new LinkItem("/test4", "Test4"),                                                                                              
+                new LinkItem("/test5", "Test5")
+                                                                                                                          
+            }))
         };
     }
 }

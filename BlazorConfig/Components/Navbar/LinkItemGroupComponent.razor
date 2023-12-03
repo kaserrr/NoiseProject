@@ -1,0 +1,17 @@
+<li>
+    <div>
+        <div class="@(LinkItemGroup.IsOpen ? "bg-zinc-700 text-white": "hover:bg-zinc-700 bg-zinc-800 text-zinc-200") flex items-center w-full text-left rounded-md p-2 gap-x-3 text-sm leading-6 font-semibold
+             <svg xmlns="http://www.w3.org/2000/svg"></svg>
+        <a href="@LinkItemGroup.Href" class="w-full h-full">@LinkItemGroup.Title</a>
+        </div>
+        @if (LinkItemGroup.IsOpen)
+        {
+            <ul class="mt-1 pl-2 space-y-1">
+                @foreach (var linkItem in LinkItemGroup.LinkItems)
+                {
+                   @Link.Content
+                }
+            </ul>
+        }
+    </div>
+</li>
