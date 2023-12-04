@@ -7,15 +7,9 @@ namespace FLFineDustPayloadDecoder
 {
     public class DecodeFLFineDustLoRaPayloadDecoder
     {
-        public static Dictionary<string, object> DecodeFLFineDustPayload(string payloadHex)
+        public static Dictionary<string, object> DecodeFLFineDustPayload(byte[] payloadBytes)
         {
-            // Convert hex string to byte array
-            byte[] payloadBytes = Enumerable.Range(0, payloadHex.Length)
-                                             .Where(x => x % 2 == 0)
-                                             .Select(x => Convert.ToByte(payloadHex.Substring(x, 2), 16))
-                                             .ToArray();
-
-            if (payloadBytes.Length != 14)
+            if (payloadBytes.Length < 14)
             {
                 return new Dictionary<string, object> { { "Error", "Invalid payload length" } };
             }

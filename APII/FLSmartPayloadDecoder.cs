@@ -6,12 +6,9 @@ namespace FLSmartPayloadDecoder
 {
     class DecodeFLSmartPayloadDecoder
     {
-        public static Dictionary<string, object> DecodeFLSmartPayload(string payloadHex)
+        public static Dictionary<string, object> DecodeFLSmartPayload(byte[] payloadBytes)
         {
-            // Convert hex string to byte array
-            byte[] data = StringToByteArray(payloadHex);
-
-            if (data.Length != 16)
+            if (payloadBytes.Length < 16)
             {
                 return new Dictionary<string, object> { { "Error", "Invalid payload length" } };
             }
@@ -19,17 +16,17 @@ namespace FLSmartPayloadDecoder
             Dictionary<string, object> decodedData = new Dictionary<string, object>();
 
             // Extracting data bytes
-            byte attempts = data[0];
-            ushort pending = BitConverter.ToUInt16(data, 1);
-            ushort batteryVoltage = BitConverter.ToUInt16(data, 3);
+            byte attempts = payloadBytes[0];
+            ushort pending = BitConverter.ToUInt16(payloadBytes, 1);
+            ushort batteryVoltage = BitConverter.ToUInt16(payloadBytes, 3);
             float batteryVoltageValue = batteryVoltage * 0.01f;
-            ushort co2Level = BitConverter.ToUInt16(data, 5);
-            float temperature = BitConverter.ToUInt16(data, 7) * 0.01f;
-            uint humidity = BitConverter.ToUInt32(data, 9);
+            ushort co2Level = BitConverter.ToUInt16(payloadBytes, 5);
+            float temperature = BitConverter.ToUInt16(payloadBytes, 7) * 0.01f;
+            uint humidity = BitConverter.ToUInt32(payloadBytes, 9);
             float humidityValue = humidity * 0.1f;
-            byte lightIntensity = data[13];
-            byte soundMax = data[14];
-            byte soundAvg = data[15];
+            byte lightIntensity = payloadBytes[13];
+            byte soundMax = payloadBytes[14];
+            byte soundAvg = payloadBytes[15];
 
             decodedData.Add("Attempts", attempts);
             decodedData.Add("Pending", pending);
@@ -42,17 +39,6 @@ namespace FLSmartPayloadDecoder
             decodedData.Add("Sound Average (dB(A))", soundAvg);
 
             return decodedData;
-        }
-
-        public static byte[] StringToByteArray(string hex)
-        {
-            int numberChars = hex.Length;
-            byte[] bytes = new byte[numberChars / 2];
-            for (int i = 0; i < numberChars; i += 2)
-            {
-                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
-            }
-            return bytes;
         }
     }
 }
