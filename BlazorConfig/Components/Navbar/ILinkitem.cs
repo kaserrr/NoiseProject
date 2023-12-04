@@ -1,6 +1,11 @@
-namespace BlazorConfig.Components.Navbar;
+using Microsoft.AspNetCore.Components;
 
-public interface ILinkItem
+namespace BlazorConfig.Components.Navbar
 {
-   public RenderFragment? Content { get; set; }
+    public interface ILinkItem
+    {
+        public RenderFragment? Content { get; set; }
+    }
 }
+
+

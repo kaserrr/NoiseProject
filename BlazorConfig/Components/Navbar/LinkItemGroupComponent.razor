@@ -1,17 +1,21 @@
+
 <li>
     <div>
-        <div class="@(LinkItemGroup.IsOpen ? "bg-zinc-700 text-white": "hover:bg-zinc-700 bg-zinc-800 text-zinc-200") flex items-center w-full text-left rounded-md p-2 gap-x-3 text-sm leading-6 font-semibold
-             <svg xmlns="http://www.w3.org/2000/svg"></svg>
-        <a href="@LinkItemGroup.Href" class="w-full h-full">@LinkItemGroup.Title</a>
+        <div class="@(LinkItemGroup.IsOpen ? "bg-zinc-700 text-white": "hover:bg-zinc-700 bg-zinc-800 text-zinc-200 flex items-center w-full text-left rounded-md p-2 gap-x-3 text-sm leading-6 font-semibold")">
+            <svg @onclick="() => LinkItemGroup.IsOpen = !LinkItemGroup.IsOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 8 24 24" stroke-width="1.5" stroke="currentColor" class="@(LinkItemGroup.IsOpen ? "rotate-90" : "") transition-all text-zinc-300 h-5 w-5 shrink-0">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.517.5 7.5-7.5 7.5"/>
+            </svg>
+            <a href="@LinkItemGroup.Href" class="w-full h-full">@LinkItemGroup.Title</a>
         </div>
         @if (LinkItemGroup.IsOpen)
         {
             <ul class="mt-1 pl-2 space-y-1">
-                @foreach (var linkItem in LinkItemGroup.LinkItems)
+                @foreach (var link in LinkItemGroup.LinkItems)
                 {
-                   @Link.Content
+                   @link.Content
                 }
             </ul>
         }
     </div>
 </li>
+

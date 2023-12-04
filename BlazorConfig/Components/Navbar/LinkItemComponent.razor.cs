@@ -4,6 +4,6 @@ namespace BlazorConfig.Components.Navbar;
     public partial class LinkItemComponent
     {
         [Parameter]
-        public LinkItem LinkItem { get; set; }
+        public required LinkItem LinkItem { get; set; }
     }
 
