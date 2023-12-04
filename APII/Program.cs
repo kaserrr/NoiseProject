@@ -1,50 +1,52 @@
 using System;
-using System.IO;
-using System.Net;
+using System.Collections.Generic;
+using ElsysPayloadDecoder;
+using FLSmartPayloadDecoder;
+using FLFreshPayloadDecoder;
+using FLFineDustPayloadDecoder;
+using System.Reflection.Metadata.Ecma335;
 
-class Program
+namespace Decoders
 {
-    static void Main1(string[] args)
+    interface IDecoder
     {
-        // Create an HttpListener instance to listen for incoming requests
-        HttpListener listener = new HttpListener();
-        listener.Prefixes.Add("http://localhost:8080/"); // Define the URL to listen on
-  
-        try
-        {
-            listener.Start();
-            Console.WriteLine("Listening for requests on http://localhost:8080/");
+        Dictionary<string, object> Decode(string payloadHexStr);
+    }
+    
 
-            while (true)
+    class Decoder : IDecoder
+    {
+        public Dictionary<string, object> Decode(string payloadHexStr)
+        {
+            Dictionary<string, object> decodedData;
+
+            /*decodedData = DecodeFLFineDustLoRaPayloadDecoder.DecodeFLFineDustPayload(payloadHexStr);*/
+
+            decodedData = DecodeFlFreshPayloadDecoder.DecodeFlFreshPayload(payloadHexStr);
+
+            /*decodedData = DecodeFLSmartPayloadDecoder.DecodeFLSmartPayload(payloadHexStr);*/
+
+            /*decodedData = PayloadDecoder.ElsysPayloadDecoder.DecodeElsysPayload(payloadHexStr);*/
+
+            return decodedData;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Decoder decoder = new Decoder();
+            Dictionary<string, object> decodedData = decoder.Decode("0500A086000032000001F4010000000A");
+
+            // Print the decoded data
+            foreach (var entry in decodedData)
             {
-                // Wait for an incoming HTTP request
-                HttpListenerContext context = listener.GetContext();
-                HttpListenerRequest request = context.Request;
-
-                // Read the request body
-                string requestBody;
-                using (StreamReader reader = new StreamReader(request.InputStream))
-                {
-                    requestBody = reader.ReadToEnd();
-                }
-
-                // Print the request body
-                Console.WriteLine($"Received a request with body: {requestBody}");
-
-                // Send a response to the client
-                string responseText = "Hello, this is your API response!";
-                byte[] responseBytes = System.Text.Encoding.UTF8.GetBytes(responseText);
-                context.Response.OutputStream.Write(responseBytes, 0, responseBytes.Length);
-                context.Response.Close();
+                Console.WriteLine($"{entry.Key}: {entry.Value}");
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"An error occurred: {ex.Message}");
-        }
-        finally
-        {
-            listener.Stop();
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }

@@ -1,0 +1,57 @@
+﻿@* @page "/decodertest"
+
+@using System
+@using System.Collections.Generic
+@using API.Decoders
+
+<h3>Decoder Test</h3>
+
+@code {
+    private string Elsys = "MDEwMGUyMDIyOTA0MDAyNzA1MDYwNjAzMDgwNzBkNjI=";
+    private Dictionary<string, object> decodedData;
+
+    private void DecodePayload()
+    {
+        API.Decoders.Decoder decoder = new API.Decoders.Decoder(); // Use the fully qualified name here
+        byte[] payloadBytes = Convert.FromBase64String(Elsys);
+
+        // Log the payload bytes
+        Console.WriteLine("Payload Bytes:");
+        foreach (byte b in payloadBytes)
+        {
+            Console.Write(b.ToString("X2") + " "); // Prints each byte in hexadecimal format
+        }
+
+        // Decode payload
+        decodedData = decoder.Decode(payloadBytes);
+    }
+}
+
+<div>
+    <button @onclick="DecodePayload">Decode Payload</button>
+
+    @if (decodedData != null)
+    {
+        <div>
+            <h4>Decoded Data:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var entry in decodedData)
+                    {
+                        <tr>
+                            <td>@entry.Key</td>
+                            <td>@entry.Value.ToString()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+ *@
