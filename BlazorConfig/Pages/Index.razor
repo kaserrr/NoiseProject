@@ -8,18 +8,15 @@
 
 @inject NavigationManager NavigationManager
 
-<head>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
 
 <div class="h-screen flex items-center justify-center bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500">
     <div class="bg-white flex flex-col items-center justify-center p-12 shadow-md">
-        <h3 class="text-xl	antialiased	font-semibold">Login Form</h3>
+        <h3 class="text-xl antialiased font-semibold">Login Form</h3>
         <div class="flex flex-col">
             <label class="">Username</label>
-            <input class="p-1 text-black w-64 border-2 border-gray-300 border-solid" type="text" @bind="username">
+            <input class="p-1 text-black w-64 border-2 border-gray-300 border-solid" type="text" @bind="username" @ref="usernameInput" @onkeypress="HandleKeyPress">
             <label class="">Password</label>
-            <input class="p-1 text-black w-64 border-2 border-gray-300 border-solid mb-4" type="password" @bind="password">
+            <input class="p-1 text-black w-64 border-2 border-gray-300 border-solid mb-4" type="password" @bind="password" @ref="passwordInput" @onkeypress="HandleKeyPress">
             <button class="bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 p-1 text-white w-64" @onclick="AttemptLogin">Login</button>
         </div>
 
@@ -27,22 +24,28 @@
         {
             <p class="text-red-600 w-64">Login failed.</p>
         }
+
+        @if (loginLoading)
+        {
+            <p class="text-black-600 w-64">Loading.</p>
+        }
     </div>
 </div>
-
-
-
 
 @code {
     private string username;
     private string password;
     private bool loginFailed;
+    private bool loginLoading;
+    private ElementReference usernameInput;
+    private ElementReference passwordInput;
 
     private void AttemptLogin()
     {
         // Hardcoded username and password for demonstration purposes
         if (username == "demo" && password == "password")
         {
+            loginLoading = true;
             // Successful login, navigate to the protected page
             NavigationManager.NavigateTo("/Config");
         }
@@ -51,4 +54,14 @@
             loginFailed = true;
         }
     }
+
+    private void HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            // Enter key is pressed, attempt login
+            AttemptLogin();
+        }
+    }
 }
+
