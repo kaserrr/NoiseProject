@@ -1,50 +1,67 @@
 using System;
-using System.IO;
-using System.Net;
+using System.Text;
+using System.Collections.Generic;
+using ElsysPayloadDecoder;
+using FLSmartPayloadDecoder;
+using FLFreshPayloadDecoder;
+using FLFineDustPayloadDecoder;
 
-class Program
+namespace Decoders
 {
-    static void Main1(string[] args)
+    interface IDecoder
     {
-        // Create an HttpListener instance to listen for incoming requests
-        HttpListener listener = new HttpListener();
-        listener.Prefixes.Add("http://localhost:8080/"); // Define the URL to listen on
-  
-        try
-        {
-            listener.Start();
-            Console.WriteLine("Listening for requests on http://localhost:8080/");
+        Dictionary<string, object> Decode(byte[] payloadBytes);
+    }
+    
 
-            while (true)
+    class Decoder : IDecoder
+    {
+        public Dictionary<string, object> Decode(byte[] payloadBytes)
+        {
+            Dictionary<string, object> decodedData;
+
+            // Use the appropriate payload decoder
+            // Comment/Uncomment the desired decoder based on your requirements
+            /*decodedData = DecodeFLFineDustLoRaPayloadDecoder.DecodeFLFineDustPayload(payloadBytes);*/
+            /*decodedData = DecodeFlFreshPayloadDecoder.DecodeFlFreshPayload(payloadBytes);*/
+            /*decodedData = DecodeFLSmartPayloadDecoder.DecodeFLSmartPayload(payloadBytes);*/
+            decodedData = PayloadDecoder.DecodeElsysPayload(payloadBytes);
+            return decodedData;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Decoder decoder = new Decoder();
+
+            // Replace this string with your actual Base64 payload
+            string FLDust = "SGVsbG8sIFdvcmxkIQAAAAAAAA==";
+            string FLFresh = "SGVsbG8sIFdvcmxkIQ==";
+            string FLSmart = "AAMAAKAAAQAAAAMAAAAAAHgAAAAYAAADAAAAGAAAABgAAAAoAAAAEAAAACAAAAAQAAAAkAAA";
+            string Elsys = "MDEwMGUyMDIyOTA0MDAyNzA1MDYwNjAzMDgwNzBkNjI=";
+
+            // Convert Base64 to bytes
+            byte[] payloadBytes = Convert.FromBase64String(Elsys);
+            Console.WriteLine("Payload Bytes:");
+            foreach (byte b in payloadBytes)
             {
-                // Wait for an incoming HTTP request
-                HttpListenerContext context = listener.GetContext();
-                HttpListenerRequest request = context.Request;
-
-                // Read the request body
-                string requestBody;
-                using (StreamReader reader = new StreamReader(request.InputStream))
-                {
-                    requestBody = reader.ReadToEnd();
-                }
-
-                // Print the request body
-                Console.WriteLine($"Received a request with body: {requestBody}");
-
-                // Send a response to the client
-                string responseText = "Hello, this is your API response!";
-                byte[] responseBytes = System.Text.Encoding.UTF8.GetBytes(responseText);
-                context.Response.OutputStream.Write(responseBytes, 0, responseBytes.Length);
-                context.Response.Close();
+                Console.Write(b.ToString("X2") + " "); // Prints each byte in hexadecimal format
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"An error occurred: {ex.Message}");
-        }
-        finally
-        {
-            listener.Stop();
+
+            Dictionary<string, object> decodedData = decoder.Decode(payloadBytes);
+
+            // Print the decoded data
+            foreach (var entry in decodedData)
+            {
+                Console.WriteLine($"{entry.Key}: {entry.Value}");
+            }
+
+
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }
