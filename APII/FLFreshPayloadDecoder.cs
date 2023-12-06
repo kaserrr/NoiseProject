@@ -26,7 +26,7 @@ namespace FLFreshPayloadDecoder
 
             decodedData.Add("Battery Voltage (V)", batteryVoltageValue);
             decodedData.Add("CO2 Level (ppm)", co2Level);
-            decodedData.Add("Temperature (°C)", temperature);
+            decodedData.Add("Temperature (Â°C)", temperature);
             decodedData.Add("Humidity (%)", humidity);
             decodedData.Add("Air Pressure", airPressure);
 
