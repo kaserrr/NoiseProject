@@ -20,4 +20,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="bin - Copy\Release\net7.0\" />
+  </ItemGroup>
+
 </Project>
