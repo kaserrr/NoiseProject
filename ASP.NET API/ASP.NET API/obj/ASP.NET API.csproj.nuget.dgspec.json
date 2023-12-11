@@ -1,36 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\denni\\source\\repos\\Noise_project\\ASP.NET API\\ASP.NET API\\ASP.NET API.csproj": {}
+    "C:\\Users\\kaser\\source\\repos\\Noise_project\\ASP.NET API\\ASP.NET API\\ASP.NET API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\denni\\source\\repos\\Noise_project\\ASP.NET API\\ASP.NET API\\ASP.NET API.csproj": {
+    "C:\\Users\\kaser\\source\\repos\\Noise_project\\ASP.NET API\\ASP.NET API\\ASP.NET API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\denni\\source\\repos\\Noise_project\\ASP.NET API\\ASP.NET API\\ASP.NET API.csproj",
+        "projectUniqueName": "C:\\Users\\kaser\\source\\repos\\Noise_project\\ASP.NET API\\ASP.NET API\\ASP.NET API.csproj",
         "projectName": "ASP.NET API",
-        "projectPath": "C:\\Users\\denni\\source\\repos\\Noise_project\\ASP.NET API\\ASP.NET API\\ASP.NET API.csproj",
-        "packagesPath": "C:\\Users\\denni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\denni\\source\\repos\\Noise_project\\ASP.NET API\\ASP.NET API\\obj\\",
+        "projectPath": "C:\\Users\\kaser\\source\\repos\\Noise_project\\ASP.NET API\\ASP.NET API\\ASP.NET API.csproj",
+        "packagesPath": "C:\\Users\\kaser\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kaser\\source\\repos\\Noise_project\\ASP.NET API\\ASP.NET API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\denni\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\kaser\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -41,8 +37,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
@@ -86,24 +82,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.24, 6.0.24]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.24, 6.0.24]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.24, 6.0.24]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.24, 6.0.24]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -112,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
