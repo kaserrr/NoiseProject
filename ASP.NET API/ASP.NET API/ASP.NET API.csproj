@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="bin - Copy\Release\net7.0\" />
+    <Folder Include="bin\Release\net7.0\" />
   </ItemGroup>
 
 </Project>
